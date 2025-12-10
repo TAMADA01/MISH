@@ -12,7 +12,7 @@ if (WIN32)
     add_definitions(-D_WIN32)
 endif()
 
-find_package(Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt5 REQUIRED COMPONENTS Widgets SerialPort)
 find_package (Boost REQUIRED)
 
 file(GLOB_RECURSE SRC
@@ -25,6 +25,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(${PROJECT_NAME}
         Qt5::Core
         Qt5::Widgets
+        Qt5::SerialPort
         Qt5::Gui)
 
 if (WIN32)
